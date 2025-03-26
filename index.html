@@ -7,19 +7,38 @@
   </head>
   <!-- VUE CDN -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- Style -->
+  <link rel="stylesheet" href="assets/styles.css" />
 
   <body>
     <div id="app">
-      <h1>{{message}}</h1>
-      <input type="text" v-model="message">
+      <!-- <h1>{{message}}</h1>
+      <input type="text" v-model="message"> -->
+      <div class="product-display">
+        <div class="product-container">
+          <div class="product-image">
+            <!-- Imagem do Produto-->
+            <img :src="image" alt="imagem blusa azul" />
+          </div>
+          <div class="product-info">
+            <!-- Informações do Produto-->
+            <h1>T-Shirt</h1>
+            <p>
+              In Stock
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <script>
       const { createApp } = Vue;
 
       createApp({
         data() {
+          const message = ref('Olá Mundo!');
           return {
-            message: "Olá Mundo!",
+            message,
+            image: ref("./assets/imagens/t-shirt-blue.png")
           };
         },
       }).mount("#app");
