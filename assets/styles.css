@@ -111,6 +111,7 @@ p {
 .product-image,
 .product-info {
   width: 50%;
+  margin: auto 0;
 }
 
 .review-form {

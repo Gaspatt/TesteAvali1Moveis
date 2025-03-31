@@ -22,10 +22,18 @@
           </div>
           <div class="product-info">
             <!-- Informações do Produto-->
-            <h1>T-Shirt</h1>
-            <p>
-              Em Estoque
-            </p>
+            <h1>{{product_title}}</h1>
+            <p v-if="EmEstoque > 10">Em Estoque</p>
+            <p v-else-if="EmEstoque <= 10 && EmEstoque >= 1">Poucas Unidades</p>
+            <p v-else>Fora de Estoque</p>
+            <ul>
+              <li v-for="detalhe in detalhes" :key="detalhe">{{detalhe}}</li>
+            </ul>
+            <div v-for="variante in variantes">
+              {{variante.cor}}
+              <button @click="image = './assets/imagens/t-shirt-' + variante.cor + '.png'">
+                Selecionar
+            </div>
           </div>
         </div>
       </div>
@@ -35,10 +43,12 @@
 
       createApp({
         data() {
-          const message = ref('Olá Mundo!');
           return {
-            message,
-            image: ref("./assets/imagens/t-shirt-blue.png")
+            product_title: ref("Camisa Azul"),
+            image: ref("./assets/imagens/t-shirt-azul.png"),
+            EmEstoque: ref(0),
+            detalhes:['50% Algodão', '50% Poliéster'],
+            variantes:[{id:1, cor:'azul'}, {id:2, cor:'verde'}]
           };
         },
       }).mount("#app");
