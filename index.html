@@ -12,13 +12,12 @@
 
   <body>
     <div id="app">
-      <!-- <h1>{{message}}</h1>
-      <input type="text" v-model="message"> -->
+      <div class="cart">Carrinho: {{ carrinho }}</div>
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
             <!-- Imagem dos Produtos-->
-            <img :src="image" alt="imagem blusa azul" />
+            <img :src="image" alt="imagem camisa" />
           </div>
           <div class="product-info">
             <!-- Informações do Produto-->
@@ -29,11 +28,11 @@
             <ul>
               <li v-for="detalhe in detalhes" :key="detalhe">{{detalhe}}</li>
             </ul>
-            <div v-for="variante in variantes">
+            <div v-for="variante in variantes" :key="variante.id" @mouseover="mudarImagem(variante.image)">
               {{variante.cor}}
-              <button @click="image = './assets/imagens/t-shirt-' + variante.cor + '.png'">
-                Selecionar
+              
             </div>
+            <button class="button" v-on:click="adicionarCarrinho">Adicionar ao carrinho</button>
           </div>
         </div>
       </div>
@@ -43,12 +42,23 @@
 
       createApp({
         data() {
+          const carrinho = ref(0);
+          const adicionarCarrinho = () => {
+            carrinho.value += 1;
+          };
+          const image = ref ("./assets/imagens/t-shirt-azul.png");
+          const mudarImagem = (varianteImage) => {
+            image.value = varianteImage;
+          };
           return {
             product_title: ref("Camisa Azul"),
-            image: ref("./assets/imagens/t-shirt-azul.png"),
-            EmEstoque: ref(0),
+            image,
+            EmEstoque: ref(12),
             detalhes:['50% Algodão', '50% Poliéster'],
-            variantes:[{id:1, cor:'azul'}, {id:2, cor:'verde'}]
+            variantes:[{id:1, cor:'azul', image:"assets/imagens/t-shirt-azul.png"}, {id:2, cor:'Verde', image:"assets/imagens/t-shirt-verde.png"}],
+            carrinho,
+            adicionarCarrinho,
+            mudarImagem,
           };
         },
       }).mount("#app");
