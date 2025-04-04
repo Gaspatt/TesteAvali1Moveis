@@ -29,11 +29,13 @@
             <ul>
               <li v-for="detalhe in detalhes" :key="detalhe">{{detalhe}}</li>
             </ul>
-            <div
-              v-for="variante in variantes"
-              :key="variante.id"
-              @mouseover="mudarImagem(variante.image)"
-              class="color-circle" :style="{ backgroundColor: variante.cor }">
+            <div class="color-options">
+              <div
+                v-for="variante in variantes"
+                :key="variante.id"
+                @mouseover="mudarImagem(variante.image)"
+                class="color-circle" :style="{ backgroundColor: variante.cor }">
+              </div>
             </div>
             <button class="button" :class="{disabledButton : EmEstoque <= 0}" v-on:click="adicionarCarrinho" :disabled="EmEstoque <= 0">
               Adicionar ao carrinho
