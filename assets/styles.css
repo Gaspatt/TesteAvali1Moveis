@@ -5,15 +5,27 @@ body {
   background-color: #f4f4f4;
 }
 
-#app {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #20232a;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .cart, .estoque {
   font-size: 1.2em;
   margin-bottom: 10px;
+}
+
+main {
+  padding: 20px;
 }
 
 .product-display {
@@ -28,13 +40,37 @@ body {
   align-items: center;
 }
 
-.product-image img {
-  max-width: 300px;
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  background: white;
   border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+}
+
+.product-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.product-image img:hover {
+  transform: scale(1.05);
 }
 
 .product-info {
   text-align: center;
+}
+
+.product-info h2 {
+  font-size: 1.2em;
+  margin: 10px 0;
 }
 
 .color-options {
@@ -67,11 +103,20 @@ body {
 }
 
 @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
   .product-display {
     flex-direction: column;
   }
 
   .product-image img {
     max-width: 100%;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
   }
 }

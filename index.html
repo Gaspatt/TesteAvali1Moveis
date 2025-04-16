@@ -3,89 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VUE3</title>
+    <title>Marvel Characters Store</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- VUE CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!-- Style -->
+    <!--<link rel="stylesheet" href="assets/styles.css" /> -->
   </head>
-  <!-- VUE CDN -->
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <!-- Style -->
-  <link rel="stylesheet" href="assets/styles.css" />
-
   <body>
-    <div id="app">
-      <div class="cart">Carrinho: {{ carrinho }}</div>
-      <div class="estoque">Estoque: {{ EmEstoque }}</div>
-      <div class="product-display">
-        <div class="product-container">
-          <div class="product-image">
-            <!-- Imagem dos Produtos-->
-            <img :src="image" alt="imagem camisa" />
-          </div>
-          <div class="product-info">
-            <!-- Informações do Produto-->
-            <h1>{{product_title + ' ' + marca}}</h1>
-            <p v-if="EmEstoque > 10">Em Estoque</p>
-            <p v-else-if="EmEstoque <= 10 && EmEstoque >= 1">Poucas Unidades</p>
-            <p v-else>Fora de Estoque</p>
-            <ul>
-              <li v-for="detalhe in detalhes" :key="detalhe">{{detalhe}}</li>
-            </ul>
-            <div class="color-options">
-              <div
-                v-for="variante in variantes"
-                :key="variante.id"
-                @mouseover="mudarImagem(variante.image)"
-                class="color-circle" :style="{ backgroundColor: variante.cor }">
-              </div>
+    <header class="bg-dark text-white py-3">
+      <div class="container d-flex justify-content-between align-items-center">
+        <div class="logo h4">Lojinha da Marvel</div>
+        <div class="cart">
+          <button class="btn btn-primary" @click="abrirCarrinho">
+            Carrinho ({{ carrinho.length }})
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="app" class="container my-4">
+      <div class="row g-4">
+        <div
+          class="col-12 col-sm-6 col-md-4 col-lg-3"
+          v-for="personagem in personagens"
+          :key="personagem.id"
+        >
+          <div class="card h-100">
+            <img
+              :src="personagem.image"
+              :alt="personagem.nome"
+              class="card-img-top"
+              @mouseover="mudarImagem(personagem, true)"
+              @mouseleave="mudarImagem(personagem, false)"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ personagem.nome }}</h5>
+              <p class="card-text">Estoque: {{ personagem.estoque }}</p>
+              <button
+                class="btn btn-success w-100"
+                :class="{ disabled: personagem.estoque <= 0 }"
+                @click="adicionarCarrinho(personagem)"
+                :disabled="personagem.estoque <= 0"
+              >
+                Comprar
+              </button>
             </div>
-            <button class="button" :class="{disabledButton : EmEstoque <= 0}" v-on:click="adicionarCarrinho" :disabled="EmEstoque <= 0">
-              Adicionar ao carrinho
-            </button>
           </div>
         </div>
       </div>
-    </div>
-    <script>
-      const { createApp, ref } = Vue;
-
-      createApp({
-        data() {
-          const carrinho = ref(0);
-          const EmEstoque = ref(12);
-          const adicionarCarrinho = () => {
-            carrinho.value += 1;
-            EmEstoque.value -= 1;
-          };
-          const image = ref("./assets/imagens/t-shirt-azul.png");
-          const mudarImagem = (varianteImage) => {
-            image.value = varianteImage;
-          };
-          return {
-            product_title: ref("Camisa"),
-            marca: 'Nike',
-            image,
-            EmEstoque,
-            detalhes: ["50% Algodão", "50% Poliéster"],
-            variantes: [
-              { id: 1, cor: "blue", image: "assets/imagens/t-shirt-azul.png" },
-              {
-                id: 2,
-                cor: "green",
-                image: "assets/imagens/t-shirt-verde.png",
-              },
-              {
-                id: 3,
-                cor: "red",
-                image: "assets/imagens/t-shirt-vermelho.png",
-              },
-              { id: 4, cor: "pink", image: "assets/imagens/t-shirt-rosa.png" },
-            ],
-            carrinho,
-            adicionarCarrinho,
-            mudarImagem,
-          };
-        },
-      }).mount("#app");
-    </script>
-    <div></div>
+      <div v-if="carrinhoVisivel" class="mt-4">
+        <h2>Carrinho</h2>
+        <ul class="list-group" v-if="carrinho.length > 0">
+          <li
+            class="list-group-item"
+            v-for="item in carrinho"
+            :key="item.id"
+          >
+            {{ item.nome }} (Quantidade: {{ carrinho.filter(p => p.id === item.id).length }})
+          </li>
+        </ul>
+        <p v-else class="text-muted">Carrinho vazio</p>
+      </div>
+    </main>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/app.js"></script>
   </body>
 </html>
