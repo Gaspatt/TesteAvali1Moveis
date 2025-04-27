@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/perfil.css">
+</head>
+<body>
+    <header>
+        <button onclick="window.location.href='index.html'">⬅ Voltar</button>
+    </header>
+    <main>
+        <h1>Perfil do Usuário</h1>
+        <div id="perfil">
+            <p><strong>Nome:</strong> <span id="nomeUsuario">João Silva</span></p>
+            <p><strong>Data de Nascimento:</strong> <span id="dataNascimento">01/01/1990</span></p>
+            <p><strong>CEP:</strong> <span id="cep">12345-678</span></p>
+            <p><strong>Cidade:</strong> <span id="cidade">São Paulo</span></p>
+            <p><strong>Estado:</strong> <span id="estado">SP</span></p>
+            <p><strong>Endereço:</strong> <span id="endereco">Rua Exemplo, 123</span></p>
+        </div>
+        <button id="editarPerfil" onclick="habilitarEdicao()">Editar Perfil</button>
+        <div id="botoesEdicao" style="display: none;">
+            <button id="salvarEdicao" onclick="salvarEdicao()">Salvar</button>
+            <button id="cancelarEdicao" onclick="cancelarEdicao()">Cancelar</button>
+        </div>
+    </main>
+    <script>
+        function habilitarEdicao() {
+            document.getElementById('editarPerfil').style.display = 'none';
+            document.getElementById('botoesEdicao').style.display = 'block';
+            // Transformar os campos em editáveis
+        }
+
+        function salvarEdicao() {
+            document.getElementById('editarPerfil').style.display = 'block';
+            document.getElementById('botoesEdicao').style.display = 'none';
+            // Salvar as alterações feitas
+        }
+
+        function cancelarEdicao() {
+            document.getElementById('editarPerfil').style.display = 'block';
+            document.getElementById('botoesEdicao').style.display = 'none';
+            // Reverter as alterações
+        }
+    </script>
+    <script src="assets/perfil.js"></script>
+</body>
+</html>

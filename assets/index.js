@@ -157,6 +157,9 @@ const app = Vue.createApp({
       this.usuarioLogado = false;
       alert("Você saiu da sua conta.");
     },
+    irParaPerfil() {
+      window.location.href = "perfil.html";
+    },
   },
   mounted() {
     const usuario = localStorage.getItem("usuarioLogado");
