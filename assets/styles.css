@@ -4,7 +4,8 @@ body {
   font-family: 'Montserrat', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: url(imagens/galaxia3.jpg) no-repeat;
+  background: url(imagens/galaxia3.jpg) no-repeat center center fixed;
+  background-size: cover;
   min-height: 100vh;
 }
 
@@ -296,6 +297,20 @@ footer {
   margin-top: 40px;
 }
 
+@media (max-width: 992px) {
+  .container, main {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .product-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .carrinho-overlay, #perfil, form {
+    max-width: 98vw;
+    padding: 16px 6px;
+  }
+}
 @media (max-width: 768px) {
   main {
     padding: 16px 2px;
@@ -306,5 +321,54 @@ footer {
   #perfil, form, .carrinho-overlay {
     padding: 16px 6px;
     max-width: 98vw;
+  }
+}
+@media (max-width: 600px) {
+  .container, main {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .carrinho-overlay, #perfil, form, .carrinho-vazio-bg {
+    max-width: 100vw;
+    padding: 10px 2px;
+    margin: 0 auto 16px auto;
+    border-radius: 8px;
+  }
+  .btn, .btn-primary, .btn-success, .button, #editarPerfil, #botoesEdicao button {
+    font-size: 1em;
+    padding: 10px 0;
+  }
+  .login-title-marvel, .logo {
+    font-size: 1.3em !important;
+    margin-left: 4px;
+    letter-spacing: 1px;
+  }
+  .btn-back {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2em;
+    margin-right: 8px;
+  }
+  .carrinho-vazio, .carrinho-vazio-bg {
+    font-size: 1em;
+    padding: 10px 0;
+    margin-top: 16px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1.1em !important;
+    letter-spacing: 0.5px;
+  }
+  label, .form-label, .dropdown-item {
+    font-size: 0.98em !important;
+  }
+  .card-title {
+    font-size: 1em !important;
+  }
+  .card-text, .product-info p {
+    font-size: 0.95em !important;
   }
 }

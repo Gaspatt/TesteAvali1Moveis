@@ -52,6 +52,10 @@
               {{ item.nome }} - R$ {{ item.preco.toFixed(2) }} (Quantidade: {{ item.quantidade }})
             </li>
           </ul>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="fw-bold" style="color:#c0392b;font-size:1.15em;">Total:</span>
+            <span class="fw-bold" style="color:#222f5b;font-size:1.15em;">R$ {{ totalCarrinho.toFixed(2) }}</span>
+          </div>
           <button class="btn btn-primary w-100 mb-2" @click="finalizarCompra">
             Finalizar pedido
           </button>
