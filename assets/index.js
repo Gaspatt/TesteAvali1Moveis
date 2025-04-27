@@ -3,6 +3,7 @@ const app = Vue.createApp({
     return {
       carrinho: [],
       carrinhoVisivel: false,
+      usuarioLogado: false,
       personagens: [
         {
           id: 1,
@@ -132,6 +133,9 @@ const app = Vue.createApp({
     fecharCarrinho() {
       this.carrinhoVisivel = false;
     },
+    alternarCarrinho() {
+      this.carrinhoVisivel = !this.carrinhoVisivel;
+    },
     adicionarCarrinho(personagem) {
       if (personagem.estoque > 0) {
         this.carrinho.push(personagem);
@@ -145,6 +149,18 @@ const app = Vue.createApp({
     mudarImagem(personagem, hover) {
       personagem.image = hover ? personagem.hoverImage : personagem.image;
     },
+    irParaLogin() {
+      window.location.href = "login.html";
+    },
+    sair() {
+      localStorage.removeItem("usuarioLogado");
+      this.usuarioLogado = false;
+      alert("Você saiu da sua conta.");
+    },
+  },
+  mounted() {
+    const usuario = localStorage.getItem("usuarioLogado");
+    this.usuarioLogado = !!usuario;
   },
 });
 
