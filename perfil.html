@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <button onclick="window.location.href='index.html'">⬅ Voltar</button>
+        <button class="btn-back" onclick="window.location.href='index.html'">⬅</button>
     </header>
     <main>
         <h1>Perfil do Usuário</h1>
@@ -31,19 +31,16 @@
         function habilitarEdicao() {
             document.getElementById('editarPerfil').style.display = 'none';
             document.getElementById('botoesEdicao').style.display = 'block';
-            // Transformar os campos em editáveis
         }
 
         function salvarEdicao() {
             document.getElementById('editarPerfil').style.display = 'block';
             document.getElementById('botoesEdicao').style.display = 'none';
-            // Salvar as alterações feitas
         }
 
         function cancelarEdicao() {
             document.getElementById('editarPerfil').style.display = 'block';
             document.getElementById('botoesEdicao').style.display = 'none';
-            // Reverter as alterações
         }
     </script>
     <script src="assets/perfil.js"></script>

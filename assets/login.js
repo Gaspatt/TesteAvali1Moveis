@@ -31,7 +31,6 @@ const app = Vue.createApp({
       localStorage.setItem('usuarios', JSON.stringify(usuarios));
       this.registrando = false;
       alert('Usuário registrado com sucesso! Faça login para continuar.');
-      // Redireciona para a tela de login
       window.location.href = 'login.html';
     },
     logar() {

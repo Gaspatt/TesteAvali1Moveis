@@ -1,122 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Oswald:wght@500&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background: url(imagens/galaxia3.jpg) no-repeat;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, .logo, .btn, .button, .dropdown-menu, #editarPerfil, #botoesEdicao button, label, .dropdown-item {
+  font-family: 'Bebas Neue', 'Oswald', Arial, sans-serif !important;
+  letter-spacing: 1.5px;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #20232a;
-  color: white;
+  background: #c0392b;
+  color: #fff;
+  box-shadow: 0 2px 12px #0004;
+  border-bottom: 4px solid #f1c40f;
 }
 
 .logo {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.cart, .estoque {
-  font-size: 1.2em;
-  margin-bottom: 10px;
+  font-size: 2.2em;
+  letter-spacing: 2px;
+  color: #f1c40f;
+  text-shadow: 2px 2px 0 #222f5b, 0 0 8px #fff2;
 }
 
 main {
-  padding: 20px;
-}
-
-.product-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.product-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 32px 10px 32px 10px;
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
 }
 
 .product-card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  text-align: center;
+  background: rgba(255,255,255,0.97);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0003;
+  border: 2px solid #c0392b;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.product-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px #c0392b55;
+  border-color: #f1c40f;
 }
 
 .product-image img {
   max-width: 100%;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 12px #2222;
 }
-
 .product-image img:hover {
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 6px 32px #c0392b77;
 }
 
-.product-info {
-  text-align: center;
+.product-info h2, .card-title {
+  color: #c0392b;
+  font-size: 1.4em;
+  margin: 10px 0 4px 0;
+  letter-spacing: 1px;
 }
 
-.product-info h2 {
-  font-size: 1.2em;
-  margin: 10px 0;
+.product-info p, .card-text {
+  color: #222f5b;
+  font-size: 1.08em;
 }
 
-.color-options {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0;
-}
-
-.color-circle {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.button {
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #007bff;
-  color: white;
+.button, .btn-primary, .btn-success, #botoesEdicao button:not(:first-child):not(:last-child), .btn {
+  background: #222f5b;
+  color: #fff;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Montserrat', Arial, sans-serif !important;
+  font-size: 1.15em;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px #222f5b33;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.button:hover, .btn-primary:hover, .btn-success:hover, .btn:hover {
+  background: #344080;
+  color: #f1c40f;
+  box-shadow: 0 4px 16px #222f5b55;
 }
 
-.disabledButton {
-  background-color: #ccc;
-  cursor: not-allowed;
+#editarPerfil {
+  background: #e57373;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Montserrat', Arial, sans-serif !important;
+  font-size: 1.15em;
+  letter-spacing: 1px;
+  margin-top: 18px;
+  padding: 10px;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+#editarPerfil:hover {
+  background: #ef9a9a;
+  color: #ffffff;
+}
+
+#botoesEdicao button:last-child {
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Montserrat', Arial, sans-serif !important;
+  font-size: 1.15em;
+  letter-spacing: 1px;
+  padding: 10px;
+  font-size: 1rem;
+  margin-left: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+#botoesEdicao button:last-child:hover {
+  background: #a93226;
+  color: #fff;
+}
+
+#botoesEdicao button:first-child {
+  background: #f1c40f;
+  color: #222f5b;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Montserrat', Arial, sans-serif !important;
+  font-size: 1.15em;
+  letter-spacing: 1px;
+  padding: 10px;
+  font-size: 1rem;
+  margin-right: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+#botoesEdicao button:first-child:hover {
+  background: #ffe066;
+  color: #222f5b;
+}
+
+.dropdown-menu {
+  min-width: 160px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px #0002;
+  border: none;
+  padding: 8px 0;
+  background: #222f5b;
+}
+.dropdown-menu .dropdown-item {
+  font-size: 1.08rem;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  margin: 2px 8px;
+}
+.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus {
+  background: #f1c40f;
+  color: #222f5b;
+}
+.bi-person-circle {
+  color: #f1c40f !important;
+  transition: color 0.2s;
+}
+.bi-person-circle:hover {
+  color: #fff !important;
+}
+
+#perfil, form, .carrinho-overlay {
+  background: rgba(255,255,255,0.98);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px #2222;
+  padding: 28px 20px;
+  margin: 0 auto 24px auto;
+  max-width: 420px;
+}
+#perfil strong {
+  color: #c0392b;
+}
+input.form-control {
+  border: 2px solid #c0392b;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+input.form-control:focus {
+  border-color: #f1c40f;
+  box-shadow: 0 0 0 2px #f1c40f44;
+}
+
+.login-switch-text, .register-switch-text {
+  color: #f1c40f;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.13em;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 18px;
+  margin-bottom: 0;
+  text-shadow: 1px 1px 4px #222f5b99;
+}
+.login-switch-text a, .register-switch-text a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.login-switch-text a:hover, .register-switch-text a:hover {
+  color: #c0392b;
+}
+.btn-back {
+  background: transparent;
+  border: 2px solid #f1c40f;
+  color: #f1c40f;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7em;
+  margin-right: 16px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: 0 2px 8px #0005;
+}
+.btn-back:hover {
+  background: #f1c40f;
+  color: #222f5b;
+  border-color: #fff;
+}
+.login-title-marvel {
+  font-family: 'Bebas Neue', 'Oswald', Arial, sans-serif;
+  color: #f1c40f;
+  font-size: 2.7em;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 8px #222f5b, 0 0 12px #fff2;
+  margin-bottom: 0;
+  margin-left: 8px;
+}
+
+footer {
+  background: #222f5b;
+  color: #f1c40f;
+  text-align: center;
+  padding: 18px 0 10px 0;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  border-top: 4px solid #c0392b;
+  margin-top: 40px;
 }
 
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
+  main {
+    padding: 16px 2px;
   }
-
-  .product-display {
-    flex-direction: column;
-  }
-
-  .product-image img {
-    max-width: 100%;
-  }
-
   .product-grid {
     grid-template-columns: 1fr;
+  }
+  #perfil, form, .carrinho-overlay {
+    padding: 16px 6px;
+    max-width: 98vw;
   }
 }

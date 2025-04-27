@@ -1,5 +1,3 @@
-// Script para carregar e editar perfil do usuário
-
 document.addEventListener('DOMContentLoaded', function () {
   const usuario = JSON.parse(localStorage.getItem('usuario'));
   if (!usuario) return;
