@@ -41,7 +41,7 @@
         </div>
       </header>
       <main class="container my-4">
-        <div class="carrinho-overlay">
+        <div class="carrinho-overlay" v-if="itensAgrupadosCarrinho.length > 0">
           <h1 style="text-align:center;color:#c0392b;">Carrinho</h1>
           <ul class="list-group mb-3">
             <li
@@ -52,11 +52,13 @@
               {{ item.nome }} - R$ {{ item.preco.toFixed(2) }} (Quantidade: {{ item.quantidade }})
             </li>
           </ul>
-          <button class="btn btn-success w-100 mb-2" @click="finalizarCompra">
+          <button class="btn btn-primary w-100 mb-2" @click="finalizarCompra">
             Finalizar pedido
           </button>
         </div>
-        <p v-else class="text-muted">Seu carrinho está vazio.</p>
+        <div v-else class="carrinho-vazio-bg">
+          <p class="carrinho-vazio">Seu carrinho está vazio.</p>
+        </div>
       </main>
     </div>
 
