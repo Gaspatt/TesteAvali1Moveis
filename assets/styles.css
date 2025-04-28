@@ -286,6 +286,23 @@ input.form-control:focus {
 
 }
 
+.carrinho-produto-img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #c0392b;
+  background: #fff;
+  box-shadow: 0 2px 8px #2222;
+  margin-right: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.carrinho-item:hover .carrinho-produto-img {
+  transform: scale(1.07) rotate(-2deg);
+  box-shadow: 0 4px 16px #c0392b55;
+  border-color: #f1c40f;
+}
+
 footer {
   background: #222f5b;
   color: #f1c40f;
@@ -370,5 +387,13 @@ footer {
   }
   .card-text, .product-info p {
     font-size: 0.95em !important;
+  }
+  .carrinho-produto-img {
+    width: 48px;
+    height: 48px;
+    margin-right: 8px;
+  }
+  .carrinho-item .flex-grow-1 span {
+    font-size: 0.98em;
   }
 }

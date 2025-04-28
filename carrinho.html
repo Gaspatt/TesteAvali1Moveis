@@ -45,11 +45,16 @@
           <h1 style="text-align:center;color:#c0392b;">Carrinho</h1>
           <ul class="list-group mb-3">
             <li
-              class="list-group-item"
+              class="list-group-item d-flex align-items-center carrinho-item"
               v-for="(item, index) in itensAgrupadosCarrinho"
               :key="index"
             >
-              {{ item.nome }} - R$ {{ item.preco.toFixed(2) }} (Quantidade: {{ item.quantidade }})
+              <img :src="item.image" :alt="item.nome" class="carrinho-produto-img me-3" />
+              <div class="flex-grow-1">
+                <span class="fw-bold">{{ item.nome }}</span><br>
+                <span>R$ {{ item.preco.toFixed(2) }}</span><br>
+                <span>Quantidade: {{ item.quantidade }}</span>
+              </div>
             </li>
           </ul>
           <div class="d-flex justify-content-between align-items-center mb-3">
