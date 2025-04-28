@@ -19,10 +19,9 @@ const app = Vue.createApp({
       return agrupados;
     },
     totalCarrinho() {
-      return this.itensAgrupadosCarrinho.reduce(
-        (total, item) => total + item.preco * item.quantidade,
-        0
-      );
+      return this.itensAgrupadosCarrinho.reduce((total, item) => {
+        return total + item.preco * item.quantidade;
+      }, 0);
     },
   },
   methods: {
