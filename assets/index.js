@@ -110,6 +110,7 @@ const app = Vue.createApp({
           preco: 79.99,
         },
       ],
+      imagemHover: {},
     };
   },
   computed: {
@@ -147,7 +148,7 @@ const app = Vue.createApp({
       window.location.href = "carrinho.html";
     },
     mudarImagem(personagem, hover) {
-      personagem.image = hover ? personagem.hoverImage : personagem.image;
+      this.imagemHover[personagem.id] = hover ? personagem.hoverImage : null;
     },
     irParaLogin() {
       window.location.href = "login.html";

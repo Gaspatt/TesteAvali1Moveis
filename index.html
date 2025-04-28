@@ -19,7 +19,9 @@
   <body>
     <div id="app">
       <header class="bg-dark text-white py-3">
-        <div class="container d-flex justify-content-between align-items-center">
+        <div
+          class="container d-flex justify-content-between align-items-center"
+        >
           <div class="logo h4">Lojinha da Marvel</div>
           <div class="d-flex align-items-center">
             <div class="cart me-3">
@@ -38,14 +40,19 @@
               <div v-else class="dropdown">
                 <i
                   class="bi bi-person-circle text-white"
-                  style="font-size: 1.5rem; cursor: pointer;"
+                  style="font-size: 1.5rem; cursor: pointer"
                   id="userMenu"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 ></i>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="userMenu"
+                >
                   <li>
-                    <button class="dropdown-item" @click="irParaPerfil">Perfil</button>
+                    <button class="dropdown-item" @click="irParaPerfil">
+                      Perfil
+                    </button>
                   </li>
                   <li>
                     <button class="dropdown-item" @click="sair">Sair</button>
@@ -56,7 +63,7 @@
           </div>
         </div>
       </header>
-      
+
       <div v-if="carrinhoVisivel" class="carrinho-overlay bg-light p-4">
         <h2>Carrinho</h2>
         <ul class="list-group mb-3">
@@ -65,7 +72,8 @@
             v-for="(item, index) in itensAgrupadosCarrinho"
             :key="index"
           >
-            {{ item.nome }} - R$ {{ item.preco.toFixed(2) }} (Quantidade: {{ item.quantidade }})
+            {{ item.nome }} - R$ {{ item.preco.toFixed(2) }} (Quantidade: {{
+            item.quantidade }})
           </li>
         </ul>
         <button class="btn btn-primary w-100 mb-2" @click="finalizarPedido">
@@ -81,7 +89,7 @@
           >
             <div class="card h-100">
               <img
-                :src="personagem.image"
+                :src="imagemHover[personagem.id] || personagem.image"
                 :alt="personagem.nome"
                 class="card-img-top"
                 @mouseover="mudarImagem(personagem, true)"

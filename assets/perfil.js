@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const usuario = JSON.parse(localStorage.getItem('usuario'));
+  const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
   if (!usuario) return;
 
   const campos = [
@@ -31,7 +31,13 @@ document.addEventListener('DOMContentLoaded', function () {
       const novoValor = document.getElementById(`edit_${campo.id}`).value;
       usuario[campo.key] = novoValor;
     });
-    localStorage.setItem('usuario', JSON.stringify(usuario));
+    localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    const idx = usuarios.findIndex(u => u.email === usuario.email);
+    if (idx !== -1) {
+      usuarios[idx] = usuario;
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    }
     exibirCampos();
     document.getElementById('editarPerfil').style.display = 'block';
     document.getElementById('botoesEdicao').style.display = 'none';
