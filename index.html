@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marvel Characters Store</title>
+    <title>Lojinha da Marvel</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -45,6 +45,9 @@
                 ></i>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
                   <li>
+                    <button class="dropdown-item" @click="irParaPerfil">Perfil</button>
+                  </li>
+                  <li>
                     <button class="dropdown-item" @click="sair">Sair</button>
                   </li>
                 </ul>
@@ -65,7 +68,7 @@
             {{ item.nome }} - R$ {{ item.preco.toFixed(2) }} (Quantidade: {{ item.quantidade }})
           </li>
         </ul>
-        <button class="btn btn-success w-100 mb-2" @click="finalizarPedido">
+        <button class="btn btn-primary w-100 mb-2" @click="finalizarPedido">
           Finalizar pedido
         </button>
       </div>
@@ -89,7 +92,7 @@
                 <p class="card-text">Estoque: {{ personagem.estoque }}</p>
                 <p class="card-text">R$ {{ personagem.preco.toFixed(2) }}</p>
                 <button
-                  class="btn btn-success w-100"
+                  class="btn btn-primary w-100"
                   :class="{ disabled: personagem.estoque <= 0 }"
                   @click="adicionarCarrinho(personagem)"
                   :disabled="personagem.estoque <= 0"
