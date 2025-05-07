@@ -1,10 +1,11 @@
 const CACHE_NAME = "teste-avali1-cache-v1";
 const urlsToCache = [
-  "/index.html",
-  "/styles.css",
-  "/script.js",
-  "/icons/icon-192x192.png",
-  "/icons/icon-512x512.png"
+  "index.html",
+  "assets/styles.css",
+  "assets/index.js",
+  "assets/imagens/icon-192x192.png",
+  "assets/imagens/icon-512x512.png",
+  "assets/imagens/icon.png",
 ];
 
 self.addEventListener("install", event => {
