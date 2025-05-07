@@ -1,6 +1,6 @@
 {
   "name": "Lojinha da Marvel",
-  "short_name": "Lojinha Marvel",
+  "short_name": "LojinhaMarvel",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -16,5 +16,11 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+  "dir": "auto",
+  "lang": "pt",
+  "scope": "https://lojinhadamarvel.vercel.app/",
+  "categories": [
+    "entertainment"
   ]
 }
