@@ -16,5 +16,11 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+  "dir": "auto",
+  "lang": "pt",
+  "scope": "https://lojinhadamarvel.vercel.app/",
+  "categories": [
+    "entertainment"
   ]
 }
