@@ -1,8 +1,11 @@
 {
   "name": "Lojinha da Marvel",
   "short_name": "Lojinha Marvel",
+  "description": "Loja de produtos da Marvel com uma variedade incrível de itens para os fãs.",
   "start_url": "/index.html",
   "display": "standalone",
+  "orientation": "any",
+  "id": "lojinhadamarvel.vercel.app",
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",
   "icons": [
